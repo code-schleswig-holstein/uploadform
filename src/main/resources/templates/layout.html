@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout (title, content)" th:lang-xmllang="#{lang}"
+>
+<head>
+    <title th:text="${title}">Layout Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" media="screen"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" media="screen"/>
+  <th:block th:replace="${otherStaticResources} ?: ~{}"/>
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+        .sh-navbar {
+            background-color: #003064;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #d4004b;
+            color: white;
+        }
+
+        .footer a {
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<header class="navbar navbar-expand-md navbar-dark fixed-top sh-navbar">
+        <img src="https://opendatarepo.lsh.uni-kiel.de/website2/images/logo-weiss.svg" class="d-inline-block align-top" alt="Schleswig-Holstein - Der echte Norden" height="35">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Datei-Upload</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://opendata.schleswig-holstein.de">Open-Data-Portal Schleswig-Holstein</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<main role="main" class="container">
+<h1 th:text="${title}">Layout Title</h1>
+<div th:replace="${content}">
+    <p>Layout content</p>
+</div>
+</main>
+<th:block th:replace="${afterBody} ?: ~{}"/>
+<footer class="footer">
+    <div class="container">
+        <a href="http://www.schleswig-holstein.de/odpkontakt">Kontakt</a> ·
+        <a href="http://www.schleswig-holstein.de/odpimpressum">Impressum</a> ·
+        <a href="https://www.schleswig-holstein.de/DE/Serviceseiten/Barrierefreiheitserklaerung/barrierefreiheit_node.html">Barrierefreiheit</a> ·
+        <a href="http://www.schleswig-holstein.de/odpdatenschutz">Datenschutz</a>
+    </div>
+</footer>
+<script type="application/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="application/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+
+<th:block th:replace="${javascript} ?: ~{}"/>
+
+</body>
+</html>

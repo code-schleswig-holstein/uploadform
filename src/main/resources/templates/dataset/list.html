@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=#{dataset.list}, content=~{::section}, javascript=~{:: #javascript}, afterBody=~{:: #myModal})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dataset List</title>
+</head>
+<body>
+<section>
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th th:text="#{dataset.id.label}">id</th>
+            <th th:text="#{dataset.datasetMatrix.label}">datasetMatrix</th>
+            <th th:text="#{dataset.year.label}">year</th>
+            <th th:text="#{dataset.organization.label}">organization</th>
+            <th th:text="#{dataset.file.label}">file</th>
+            <th th:text="#{dataset.uploadDate.label}">uploadDate</th>
+            <th>&#160;</th>
+        </tr>
+        <tr th:each="dataset : ${datasets}">
+            <td th:text="${dataset.id}">1</td>
+            <td th:text="${dataset.datasetMatrix.id}">...</td>
+            <td th:text="${dataset.year}">...</td>
+            <td th:text="${dataset.organization}">...</td>
+            <td th:text="${dataset.file}">...</td>
+            <td th:text="${dataset.uploadDate}">...</td>
+            <td>
+              <a th:href="@{/dataset/{id}/edit(id=${dataset.id})}"  role="button" class="btn btn-secondary" ><i class="fa fa-pencil"></i></a>
+              <a th:href="@{/dataset/{id}/delete(id=${dataset.id})}"  role="button" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/><br/>
+<div>
+    <nobr>
+        <span th:if="${hasPrev}"><a th:href="@{/dataset/list(page=${prev})}" th:text="#{default.paginate.prev}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasNext}"><a th:href="@{/dataset/list(page=${next})}" th:text="#{default.paginate.next}">Next</a></span>
+    </nobr>
+</div>
+    <div>
+        <nobr>
+            <a class="btn btn-primary" role="button" th:href="@{/dataset/add}" th:text="#{dataset.button.create.label}">Add Dataset</a>
+        </nobr>
+    </div>
+
+</section>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" th:text="#{delete.dialog.title}">Delete?</h4>
+            </div>
+            <div class="modal-body">
+                <p th:text="#{dataset.delete.confirmMessage}">Are you sure to delete this dataset?</p>
+            </div>
+            <div class="modal-footer">
+                <form method="post" action="#">
+                    <button type="submit" class="btn btn-danger" th:text="#{default.button.delete.label}">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{default.button.cancel.label}">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block id="javascript">
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete').on('click', function (e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+                $('#myModal form').attr('action', href);
+                $('#myModal').modal();
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

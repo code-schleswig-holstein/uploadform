@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=${add} ? #{datasetmatrix.create.label} : #{datasetmatrix.edit.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit a DatasetMatrix</title>
+</head>
+<body>
+<section>
+<form th:action="${add} ? @{/datasetmatrix/add} : @{/datasetmatrix/{id}/edit(id=${datasetmatrix.id})}"
+      th:object="${datasetmatrix}" method="POST">
+    <div class="form-group" th:if="${datasetmatrix.id}">
+        <label for="id" th:text="#{datasetmatrix.id.label}">Id</label>
+        <input class="form-control" id="id" type="text" th:placeholder="${datasetmatrix.id}" readonly="readonly" />
+    </div>
+    <div class="form-group">
+        <label for="title" th:text="#{datasetmatrix.title.label}">title</label>
+        <input type="text" class="form-control" id="title" th:field="*{title}" />
+    </div>
+    <div class="form-group">
+        <label for="description" th:text="#{datasetmatrix.description.label}">description</label>
+        <input type="text" class="form-control" id="description" th:field="*{description}" />
+    </div>
+    <button type="submit" class="btn btn-success" th:text="${add} ? #{default.button.create.label} : #{default.button.update.label}" >Update</button>
+    <a class="btn btn-secondary" th:href="@{/datasetmatrix/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+</form>
+
+<br/>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error" ></div>
+</section>
+</body>
+</html>

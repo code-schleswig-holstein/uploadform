@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=${add} ? #{dataset.create.label} : #{dataset.edit.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit a Dataset</title>
+</head>
+<body>
+<section>
+<form th:action="${add} ? @{/dataset/add} : @{/dataset/{id}/edit(id=${dataset.id})}"
+      th:object="${dataset}" method="POST">
+    <div class="form-group" th:if="${dataset.id}">
+        <label for="id" th:text="#{dataset.id.label}">Id</label>
+        <input class="form-control" id="id" type="text" th:placeholder="${dataset.id}" readonly="readonly" />
+    </div>
+    <div class="form-group">
+        <label for="year" th:text="#{dataset.year.label}">year</label>
+        <input type="text" class="form-control" id="year" th:field="*{year}" />
+    </div>
+    <div class="form-group">
+        <label for="organization" th:text="#{dataset.organization.label}">organization</label>
+        <input type="text" class="form-control" id="organization" th:field="*{organization}" />
+    </div>
+    <div class="form-group">
+        <label for="file" th:text="#{dataset.file.label}">file</label>
+        <input type="text" class="form-control" id="file" th:field="*{file}" />
+    </div>
+    <div class="form-group">
+        <label for="uploadDate" th:text="#{dataset.uploadDate.label}">uploadDate</label>
+        <input type="text" class="form-control" id="uploadDate" th:field="*{uploadDate}" />
+    </div>
+    <div class="form-group">
+        <label for="datasetMatrix" th:text="#{dataset.datasetMatrix.label}">datasetMatrix</label>
+        <input type="text" class="form-control" id="datasetMatrix" th:field="*{datasetMatrix}" />
+    </div>
+    <button type="submit" class="btn btn-success" th:text="${add} ? #{default.button.create.label} : #{default.button.update.label}" >Update</button>
+    <a class="btn btn-secondary" th:href="@{/dataset/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+</form>
+
+<br/>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error" ></div>
+</section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title='Dateien hochgeladen', content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dateien hochgeladen</title>
+</head>
+<body>
+<section>
+    <div class="alert alert-success" role="alert">Daten hochgeladen.</div>
+
+    <div>Vielen Dank für das Hochladen der Dateien. Die Open-Data-Leitstelle wurde über die hochgeladenen Dateien informiert.</div>
+    <p>Folgende Dateien sind angekommen:</p>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Datensatz</th>
+            <th>Jahr</th>
+            <th>Dateiname</th>
+        </tr>
+        <tr th:each="ds: ${datasets}">
+            <td th:text="${ds.datasetMatrix.title}">Vornamen</td>
+            <td th:text="${ds.year}">2021</td>
+            <td th:text="${ds.file}">liste2021.csv</td>
+        </tr>
+    </table>
+
+    <p>Sie können dieses Fenster nun schließen.</p>
+</section>
+
+</body>
+</html>

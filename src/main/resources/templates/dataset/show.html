@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=#{dataset.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>dataset</title>
+    <link rel="stylesheet" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<section>
+<div th:if="${dataset}">
+    <table>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.id.label}">id</tr>
+            <td th:text="${dataset.id}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.year.label}">year</tr>
+            <td th:text="${dataset.year}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.organization.label}">organization</tr>
+            <td th:text="${dataset.organization}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.file.label}">file</tr>
+            <td th:text="${dataset.file}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.uploadDate.label}">uploadDate</tr>
+            <td th:text="${dataset.uploadDate}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{dataset.datasetMatrix.label}">datasetMatrix</tr>
+            <td th:text="${dataset.datasetMatrix}">...</td>
+        </tr>
+    </table>
+    <br/><br/>
+    <div th:if="not ${allowDelete}">
+        <a th:href="@{/dataset/{datasetId}/edit(datasetId=${dataset.id})}"  th:text="#{default.button.edit.label}">Edit</a> |
+        <a th:href="@{/dataset/{datasetId}/delete(datasetId=${dataset.id})}"  th:text="#{default.button.delete.label}">Delete</a>
+    </div>
+    <form th:if="${allowDelete}" th:action="@{/dataset/{datasetId}/delete(datasetId=${dataset.id})}" method="POST">
+        Delete this dataset? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
+        <a class="btn btn-secondary" th:href="@{/dataset/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+    </form>
+</div>
+<div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
+</section>
+</body>
+</html>

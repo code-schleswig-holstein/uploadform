@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title='Upload', content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dataset List</title>
+</head>
+<body>
+<section>
+
+    <p>Laden Sie hier die Dateien für den Datensatz <b><span th:text="${datasetMatrix.title}">Vornamen</span></b>
+        für die Kommune <span th:text="${organization}"></span> hoch.</p>
+
+    <form method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="code" th:value="${code}"/>
+    <table class="table table-striped">
+        <tr>
+            <th>Jahr</th>
+            <th>Datei</th>
+        </tr>
+        <tr th:each="ds: ${datasets}">
+            <td th:text="${ds.year}">2021</td>
+            <td><div  th:if="${ds.uploadDate == null}"><input type="file" th:name="${'file-'+ds.id}"/></div>
+            <div th:if="${ds.uploadDate}">Datei wurde bereits hochgeladen.</div></td>
+        </tr>
+    </table>
+           <button type="submit" class="btn btn-primary">Alle Dateien Hochladen</button>
+    </form>
+
+</section>
+
+</body>
+</html>

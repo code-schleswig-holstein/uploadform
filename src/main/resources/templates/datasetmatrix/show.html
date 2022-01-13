@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=#{datasetmatrix.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>datasetmatrix</title>
+    <link rel="stylesheet" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<section>
+<div th:if="${datasetmatrix}">
+    <table>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.id.label}">id</tr>
+            <td th:text="${datasetmatrix.id}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.title.label}">title</tr>
+            <td th:text="${datasetmatrix.title}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.description.label}">description</tr>
+            <td th:text="${datasetmatrix.description}">...</td>
+        </tr>
+    </table>
+    <br/><br/>
+    <div th:if="not ${allowDelete}">
+        <a th:href="@{/datasetmatrix/{datasetmatrixId}/edit(datasetmatrixId=${datasetmatrix.id})}"  th:text="#{default.button.edit.label}">Edit</a> |
+        <a th:href="@{/datasetmatrix/{datasetmatrixId}/delete(datasetmatrixId=${datasetmatrix.id})}"  th:text="#{default.button.delete.label}">Delete</a>
+    </div>
+    <form th:if="${allowDelete}" th:action="@{/datasetmatrix/{datasetmatrixId}/delete(datasetmatrixId=${datasetmatrix.id})}" method="POST">
+        Delete this datasetmatrix? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
+        <a class="btn btn-secondary" th:href="@{/datasetmatrix/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+    </form>
+</div>
+<div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
+</section>
+</body>
+</html>
