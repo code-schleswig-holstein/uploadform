@@ -10,13 +10,13 @@ public class DefaultController {
     @GetMapping("/")
     public String index(Principal principal) {
         if( principal != null) {
-            return "/admin";
+            return "admin";
         } else  {
-            return "/index";
+            return "index";
         }
     }
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "login";
     }
 }
