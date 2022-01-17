@@ -6,6 +6,7 @@ import de.landsh.opendata.uploadform.services.DatasetMatrixService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Secured("ROLE_ADMIN")
 public class DatasetMatrixController {
     private static final Logger logger = LoggerFactory.getLogger(DatasetMatrixController.class);
     public final int ROW_PER_PAGE = 20;
