@@ -5,10 +5,12 @@ import de.landsh.opendata.uploadform.ResourceNotFoundException;
 import de.landsh.opendata.uploadform.model.LocalAuthority;
 import de.landsh.opendata.uploadform.repository.LocalAuthorityRepository;
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -17,6 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LocalAuthorityService {
@@ -87,6 +90,11 @@ public class LocalAuthorityService {
 
             line = in.readLine();
         }
+    }
+
+    public String name(String id) {
+        final Optional<LocalAuthority> localAuthority = localAuthorityRepository.findById(id);
+        return localAuthority.map(authority -> authority.getType() + " " + authority.getName()).orElse(StringUtils.EMPTY);
     }
 
 }

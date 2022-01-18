@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=${add} ? #{localauthority.create.label} : #{localauthority.edit.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit a LocalAuthority</title>
+</head>
+<body>
+<section>
+<form th:action="${add} ? @{/localauthority/add} : @{/localauthority/{id}/edit(id=${localauthority.id})}"
+      th:object="${localauthority}" method="POST">
+    <div class="form-group" th:if="${localauthority.id}">
+        <label for="id" th:text="#{localauthority.id.label}">Id</label>
+        <input class="form-control" id="id" type="text" th:placeholder="${localauthority.id}" readonly="readonly" />
+    </div>
+    <div class="form-group">
+        <label for="name" th:text="#{localauthority.name.label}">name</label>
+        <input type="text" class="form-control" id="name" th:field="*{name}" />
+    </div>
+    <div class="form-group">
+        <label for="uri" th:text="#{localauthority.uri.label}">uri</label>
+        <input type="text" class="form-control" id="uri" th:field="*{uri}" />
+    </div>
+    <div class="form-group">
+        <label for="type" th:text="#{localauthority.type.label}">type</label>
+        <input type="text" class="form-control" id="type" th:field="*{type}" />
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="municipality" th:field="*{municipality}" />
+        <label class="form-check-label" for="municipality" th:text="#{localauthority.municipality.label}">Is municipality</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="county" th:field="*{county}" />
+        <label class="form-check-label" for="county" th:text="#{localauthority.county.label}">Is county</label>
+    </div>
+    <button type="submit" class="btn btn-success" th:text="${add} ? #{default.button.create.label} : #{default.button.update.label}" >Update</button>
+    <a class="btn btn-secondary" th:href="@{/localauthority/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+</form>
+
+<br/>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error" ></div>
+</section>
+</body>
+</html>

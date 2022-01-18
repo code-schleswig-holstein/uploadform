@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=#{localauthority.list}, content=~{::section}, javascript=~{:: #javascript}, afterBody=~{:: #myModal})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>LocalAuthority List</title>
+</head>
+<body>
+<section>
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th th:text="#{localauthority.id.label}">id</th>
+            <th th:text="#{localauthority.name.label}">name</th>
+            <th th:text="#{localauthority.uri.label}">uri</th>
+            <th th:text="#{localauthority.type.label}">type</th>
+            <th th:text="#{localauthority.municipality.label}">municipality</th>
+            <th th:text="#{localauthority.county.label}">county</th>
+            <th>&#160;</th>
+        </tr>
+        <tr th:each="localauthority : ${localauthoritys}">
+            <td th:text="${localauthority.id}">1</td>
+            <td th:text="${localauthority.name}">...</td>
+            <td th:text="${localauthority.uri}">...</td>
+            <td th:text="${localauthority.type}">...</td>
+            <td th:text="${localauthority.municipality}">...</td>
+            <td th:text="${localauthority.county}">...</td>
+            <td>
+              <a th:href="@{/localauthority/{id}/edit(id=${localauthority.id})}"  role="button" class="btn btn-secondary" ><i class="fa fa-pencil"></i></a>
+              <a th:href="@{/localauthority/{id}/delete(id=${localauthority.id})}"  role="button" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/><br/>
+<div>
+    <nobr>
+        <span th:if="${hasPrev}"><a th:href="@{/localauthority/list(page=${prev})}" th:text="#{default.paginate.prev}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasNext}"><a th:href="@{/localauthority/list(page=${next})}" th:text="#{default.paginate.next}">Next</a></span>
+    </nobr>
+</div>
+    <div>
+        <nobr>
+            <a class="btn btn-primary" role="button" th:href="@{/localauthority/add}" th:text="#{localauthority.button.create.label}">Add LocalAuthority</a>
+        </nobr>
+    </div>
+
+</section>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" th:text="#{delete.dialog.title}">Delete?</h4>
+            </div>
+            <div class="modal-body">
+                <p th:text="#{localauthority.delete.confirmMessage}">Are you sure to delete this localauthority?</p>
+            </div>
+            <div class="modal-footer">
+                <form method="post" action="#">
+                    <button type="submit" class="btn btn-danger" th:text="#{default.button.delete.label}">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{default.button.cancel.label}">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block id="javascript">
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete').on('click', function (e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+                $('#myModal form').attr('action', href);
+                $('#myModal').modal();
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>
