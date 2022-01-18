@@ -1,86 +1,86 @@
 ARS	Name	Typ	URI	Aufgaben Kreis	Aufgaben Gemeinde
-010510044	Kirchspielslandgemeinde Heider Umland	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010510044	0	1
 010515163	Burg-St. Michaelisdonn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515163	0	1
 010515166	Marne-Nordsee	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515166	0	1
-010515169	Kirchspielslandgemeinden Eider	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515169	0	1
+010515169	Eider	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515169	0	1
+010515172	Heider Umland	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515172	0	1
 010515175	Mitteldithmarschen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515175	0	1
 010515178	Büsum-Wesselburen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010515178	0	1
-010530083	Lütau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010530083	0	1
-010530090	Breitenfelde	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010530090	0	1
-010530100	Lauenburgische Seen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010530100	0	1
-010530116	Schwarzenbek-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010530116	0	1
 010535308	Berkenthin	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535308	0	1
+010535313	Breitenfelde	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535313	0	1
 010535318	Büchen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535318	0	1
 010535323	Hohe Elbgeest	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535323	0	1
+010535343	Lütau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535343	0	1
+010535358	Lauenburgische Seen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535358	0	1
+010535373	Schwarzenbek-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535373	0	1
 010535391	Sandesneben-Nusse	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010535391	0	1
-010540056	Pellworm	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010540056	0	1
-010540168	Landschaft Sylt	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010540168	0	1
 010545417	Eiderstedt	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545417	0	1
+010545439	Landschaft Sylt	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545439	0	1
 010545453	Viöl	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545453	0	1
+010545459	Pellworm	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545459	0	1
 010545488	Föhr-Amrum	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545488	0	1
 010545489	Südtondern	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545489	0	1
 010545492	Nordsee-Treene	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545492	0	1
 010545494	Mittleres Nordfriesland	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010545494	0	1
-010550033	Oldenburg-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010550033	0	1
+010555543	Oldenburg-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010555543	0	1
 010555546	Lensahn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010555546	0	1
 010555591	Ostholstein-Mitte	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010555591	0	1
-010560002	Hörnerkirchen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010560002	0	1
-010560002	Rantzau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010560002	0	1
-010560015	Elmshorn-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010560015	0	1
-010560043	Pinnau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010560043	0	1
+010565616	Elmshorn-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010565616	0	1
+010565636	Hörnerkirchen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010565636	0	1
+010565660	Rantzau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010565660	0	1
+010565687	Pinnau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010565687	0	1
 010565690	Geest und Marsch Südholstein	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010565690	0	1
-010570057	Großer Plöner See	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010570057	0	1
-010570091	Selent\/Schlesen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010570091	0	1
-010575727	Lütjenburg	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575727	0	1
+010575727	Amt Lütjenburg	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575727	0	1
+010575739	Großer Plöner See	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575739	0	1
 010575747	Preetz-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575747	0	1
 010575755	Probstei	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575755	0	1
+010575775	Selent/ Schlesen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575775	0	1
 010575782	Schrevenborn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575782	0	1
 010575785	Bokhorst-Wankendorf	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010575785	0	1
-010580043	Schlei-Ostsee	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010580043	0	1
 010585803	Achterwehr	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585803	0	1
 010585822	Dänischenhagen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585822	0	1
 010585824	Dänischer Wohld	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585824	0	1
 010585830	Flintbek	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585830	0	1
 010585833	Fockbek	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585833	0	1
-010585833	Hohner Harde	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585833	0	1
+010585847	Hohner Harde	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585847	0	1
 010585853	Jevenstedt	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585853	0	1
 010585859	Molfsee	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585859	0	1
 010585864	Nortorfer Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585864	0	1
 010585888	Eiderkanal	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585888	0	1
 010585889	Bordesholm	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585889	0	1
 010585890	Hüttener Berge	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585890	0	1
+010585893	Schlei-Ostsee	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585893	0	1
 010585895	Mittelholstein	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010585895	0	1
-010590045	Kappeln-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010590045	0	1
 010595912	Eggebek	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595912	0	1
 010595915	Haddeby	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595915	0	1
 010595919	Hürup	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595919	0	1
+010595920	Kappeln-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595920	0	1
 010595937	Langballig	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595937	0	1
 010595940	Oeversee	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595940	0	1
-010595949	Mittelangeln	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595949	0	1
+010595949	Amt Mittelangeln	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595949	0	1
 010595952	Schafflund	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595952	0	1
 010595974	Süderbrarup	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595974	0	1
 010595987	Südangeln	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595987	0	1
 010595990	Geltinger Bucht	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595990	0	1
 010595993	Arensharde	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595993	0	1
 010595996	Kropp-Stapelholm	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010595996	0	1
-010600004	Bad Bramstedt-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010600004	0	1
-010600005	Trave-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010600005	0	1
-010600044	Kaltenkirchen-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010600044	0	1
+010605005	Bad Bramstedt-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605005	0	1
 010605024	Bornhöved	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605024	0	1
 010605034	Itzstedt	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605034	0	1
+010605043	Kaltenkirchen-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605043	0	1
 010605048	Kisdorf	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605048	0	1
 010605053	Leezen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605053	0	1
 010605063	Boostedt-Rickling	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605063	0	1
-010610046	Itzehoe-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010610046	0	1
-010610113	Wilstermarsch	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010610113	0	1
+010605086	Trave-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010605086	0	1
 010615104	Breitenburg	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615104	0	1
 010615134	Horst-Herzhorn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615134	0	1
+010615138	Itzehoe-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615138	0	1
 010615153	Krempermarsch	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615153	0	1
 010615168	Schenefeld	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615168	0	1
+010615179	Wilstermarsch	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615179	0	1
 010615189	Kellinghusen	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010615189	0	1
-010620004	Bad Oldesloe-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010620004	0	1
-010620006	Bargteheide-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010620006	0	1
-010620061	Nordstormarn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010620061	0	1
+010625207	Bad Oldesloe-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010625207	0	1
+010625218	Bargteheide-Land	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010625218	0	1
+010625244	Nordstormarn	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010625244	0	1
 010625262	Siek	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010625262	0	1
 010625270	Trittau	Amt	http://dcat-ap.de/def/politicalGeocoding/municipalAssociationKey/010625270	0	1
 010530129	Wentorf bei Hamburg	Gemeinde	http://dcat-ap.de/def/politicalGeocoding/municipalityKey/010530129	0	1

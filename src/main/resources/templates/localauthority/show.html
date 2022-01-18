@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(title=#{localauthority.label}, content=~{::section})}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>localauthority</title>
+    <link rel="stylesheet" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<section>
+<div th:if="${localauthority}">
+    <table>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.id.label}">id</tr>
+            <td th:text="${localauthority.id}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.name.label}">name</tr>
+            <td th:text="${localauthority.name}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.uri.label}">uri</tr>
+            <td th:text="${localauthority.uri}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.type.label}">type</tr>
+            <td th:text="${localauthority.type}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.municipality.label}">municipality</tr>
+            <td th:text="${localauthority.municipality}">...</td>
+        </tr>
+        <tr>
+            <th class="pr-3" scope="row" th:text="#{localauthority.county.label}">county</tr>
+            <td th:text="${localauthority.county}">...</td>
+        </tr>
+    </table>
+    <br/><br/>
+    <div th:if="not ${allowDelete}">
+        <a th:href="@{/localauthority/{localauthorityId}/edit(localauthorityId=${localauthority.id})}"  th:text="#{default.button.edit.label}">Edit</a> |
+        <a th:href="@{/localauthority/{localauthorityId}/delete(localauthorityId=${localauthority.id})}"  th:text="#{default.button.delete.label}">Delete</a>
+    </div>
+    <form th:if="${allowDelete}" th:action="@{/localauthority/{localauthorityId}/delete(localauthorityId=${localauthority.id})}" method="POST">
+        Delete this localauthority? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
+        <a class="btn btn-secondary" th:href="@{/localauthority/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
+    </form>
+</div>
+<div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
+</section>
+</body>
+</html>

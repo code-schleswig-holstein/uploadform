@@ -9,7 +9,7 @@
 <section>
 
     <p>Laden Sie hier die Dateien für den Datensatz <b><span th:text="${datasetMatrix.title}">Vornamen</span></b>
-        für die Kommune <span th:text="${organization}"></span> hoch.</p>
+        für <b><span th:text="${@localAuthorityService.name(organization)}"></span></b> hoch.</p>
 
     <form method="post"  enctype="multipart/form-data">
         <input type="hidden" name="code" th:value="${code}"/>

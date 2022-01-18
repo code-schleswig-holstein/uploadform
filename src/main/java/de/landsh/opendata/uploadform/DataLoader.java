@@ -2,13 +2,15 @@ package de.landsh.opendata.uploadform;
 
 import de.landsh.opendata.uploadform.model.Dataset;
 import de.landsh.opendata.uploadform.model.DatasetMatrix;
-import de.landsh.opendata.uploadform.repository.DatasetRepository;
 import de.landsh.opendata.uploadform.services.DatasetMatrixService;
+import de.landsh.opendata.uploadform.services.DatasetService;
+import de.landsh.opendata.uploadform.services.LocalAuthorityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,10 +19,15 @@ import java.util.Set;
 public class DataLoader implements ApplicationRunner {
 
     private final DatasetMatrixService datasetMatrixService;
-    private final DatasetRepository datasetRepository;
+    private final DatasetService datasetService;
+    private final LocalAuthorityService localAuthorityService;
 
     @Override
-    public void run(ApplicationArguments args)  {
+    public void run(ApplicationArguments args) throws IOException {
+
+        if (localAuthorityService.count() == 0) {
+            localAuthorityService.importFromCSV(getClass().getResourceAsStream("/sh-kommunen.csv"));
+        }
 
         if (datasetMatrixService.count() == 0) {
             Set<DatasetMatrix> datasetMatrix = new HashSet<>();
@@ -38,7 +45,7 @@ public class DataLoader implements ApplicationRunner {
                     System.out.println("https://opendata-stage.schleswig-holstein.de/upload/upload?dataset=" + dm.getId() + "&organization=" + org + "&code=" + datasetMatrixService.getSecurityCode(dm, org));
                     for (int year = 2015; year < 2022; year++) {
 
-                        datasetRepository.save(new Dataset(null, year, org, null, null, dm));
+                        datasetService.save(new Dataset(null, year, org, null, null, dm));
                     }
                 }
             }
