@@ -4,23 +4,22 @@
 <head>
     <meta charset="UTF-8"/>
     <title>datasetmatrix</title>
-    <link rel="stylesheet" href="../../static/css/main.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" media="screen"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="screen"/>
 </head>
 <body>
 <section>
 <div th:if="${datasetmatrix}">
     <table>
         <tr>
-            <th class="pr-3" scope="row" th:text="#{datasetmatrix.id.label}">id</tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.id.label}">id</th>
             <td th:text="${datasetmatrix.id}">...</td>
         </tr>
         <tr>
-            <th class="pr-3" scope="row" th:text="#{datasetmatrix.title.label}">title</tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.title.label}">title</th>
             <td th:text="${datasetmatrix.title}">...</td>
         </tr>
         <tr>
-            <th class="pr-3" scope="row" th:text="#{datasetmatrix.description.label}">description</tr>
+            <th class="pr-3" scope="row" th:text="#{datasetmatrix.description.label}">description</th>
             <td th:text="${datasetmatrix.description}">...</td>
         </tr>
     </table>
