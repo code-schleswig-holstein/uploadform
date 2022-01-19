@@ -9,9 +9,9 @@
 <section>
 <form th:action="${add} ? @{/datasetmatrix/add} : @{/datasetmatrix/{id}/edit(id=${datasetmatrix.id})}"
       th:object="${datasetmatrix}" method="POST">
-    <div class="form-group" th:if="${datasetmatrix.id}">
+    <div class="form-group">
         <label for="id" th:text="#{datasetmatrix.id.label}">Id</label>
-        <input class="form-control" id="id" type="text" th:placeholder="${datasetmatrix.id}" readonly="readonly" />
+        <input class="form-control" id="id" type="text" th:field="*{id}" />
     </div>
     <div class="form-group">
         <label for="title" th:text="#{datasetmatrix.title.label}">title</label>
