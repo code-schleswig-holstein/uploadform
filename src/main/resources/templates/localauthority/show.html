@@ -44,6 +44,22 @@
         Delete this localauthority? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
         <a class="btn btn-secondary" th:href="@{/localauthority/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
     </form>
+
+    <hr/>
+
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th th:text="#{datasetmatrix.label}">Dataset matrix</th>
+                <th>Code</th>
+            </tr>
+            <tr th:each="it : ${codelist}">
+                <td th:text="${it.key.title}">Vornamen</td>
+                <td th:text="${it.value}">https://example.org/upload?code=cc180990-c564-4050-b880-31c3ae97aa18</td>
+            </tr>
+        </table>
+    </div>
+
 </div>
 <div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
 </section>

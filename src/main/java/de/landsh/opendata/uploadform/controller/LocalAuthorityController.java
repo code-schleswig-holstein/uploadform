@@ -1,16 +1,21 @@
 package de.landsh.opendata.uploadform.controller;
 
 import de.landsh.opendata.uploadform.ResourceNotFoundException;
+import de.landsh.opendata.uploadform.model.DatasetMatrix;
 import de.landsh.opendata.uploadform.model.LocalAuthority;
+import de.landsh.opendata.uploadform.services.DatasetService;
 import de.landsh.opendata.uploadform.services.LocalAuthorityService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 @Controller
 @RequiredArgsConstructor
@@ -40,15 +45,24 @@ public class LocalAuthorityController {
         return "localauthority/list";
     }
 
+    private final DatasetService  datasetService;
     @GetMapping(value = "/localauthority/{localauthorityId}")
     public String getLocalAuthorityById(Model model, @PathVariable String localauthorityId) {
         LocalAuthority localauthority = null;
         try {
             localauthority = localauthorityService.findById(localauthorityId);
+
+            final Map<DatasetMatrix,String> codelist =
+            datasetService.getCodelistForOrganization( localauthority.getId() );
+
+            model.addAttribute("codelist", codelist);
+
         } catch (ResourceNotFoundException ex) {
             model.addAttribute("errorMessage", "Contact not found");
         }
         model.addAttribute("localauthority", localauthority);
+
+
         return "localauthority/show";
     }
 

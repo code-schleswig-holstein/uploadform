@@ -13,4 +13,6 @@ public interface DatasetRepository extends PagingAndSortingRepository<Dataset, L
     List<Dataset> findAllByDatasetMatrixAndOrganizationOrderByYear(DatasetMatrix datasetMatrix, String organization);
 
     Collection<Dataset> findAllByDatasetMatrix(DatasetMatrix datasetMatrix);
+
+    Collection<Dataset>  findAllByOrganization(String id);
 }

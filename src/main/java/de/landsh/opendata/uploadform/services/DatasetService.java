@@ -13,12 +13,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class DatasetService {
 
     @Autowired
     private DatasetRepository datasetRepository;
+    @Autowired
+    private DatasetMatrixService datasetMatrixService;
 
     private boolean existsById(Long id) {
         return datasetRepository.existsById(id);
@@ -111,4 +114,16 @@ public class DatasetService {
         return null;
     }
 
+    public Map<DatasetMatrix, String> getCodelistForOrganization(String organization) {
+        Map<DatasetMatrix, String> result = new HashMap<>();
+        final Set<DatasetMatrix> datasetMatrices = datasetRepository.findAllByOrganization(organization).stream().map(Dataset::getDatasetMatrix).collect(Collectors.toSet());
+
+        for (DatasetMatrix dm : datasetMatrices) {
+            String url = "upload?dataset="+dm.getId()+"&organization="+organization+"&code="+ datasetMatrixService.getSecurityCode(dm, organization);
+            result.put(dm, url);
+        }
+
+        return result;
+
+    }
 }
