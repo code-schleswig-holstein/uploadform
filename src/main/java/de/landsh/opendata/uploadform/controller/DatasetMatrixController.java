@@ -3,6 +3,7 @@ package de.landsh.opendata.uploadform.controller;
 import de.landsh.opendata.uploadform.ResourceNotFoundException;
 import de.landsh.opendata.uploadform.model.DatasetMatrix;
 import de.landsh.opendata.uploadform.services.DatasetMatrixService;
+import de.landsh.opendata.uploadform.services.DatasetService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -19,6 +22,7 @@ public class DatasetMatrixController {
     private static final Logger logger = LoggerFactory.getLogger(DatasetMatrixController.class);
     public final int ROW_PER_PAGE = 20;
     private final DatasetMatrixService datasetmatrixService;
+    private final DatasetService datasetService;
 
     @GetMapping(value = "/datasetmatrix")
     public String index() {
@@ -49,6 +53,21 @@ public class DatasetMatrixController {
             model.addAttribute("errorMessage", "Contact not found");
         }
         model.addAttribute("datasetmatrix", datasetmatrix);
+
+        List<List<String>> datasets = datasetService.getDatasetOverview(datasetmatrix);
+        List<String> availableYears;
+        if( datasets.isEmpty()) {
+            availableYears = Collections.emptyList();
+        } else {
+            // The first row contains the list of available years.
+            availableYears = datasets.get(0);
+            availableYears.remove(0);
+            datasets.remove(0);
+        }
+
+        model.addAttribute("datasets", datasets);
+        model.addAttribute("availableYears", availableYears);
+
         return "datasetmatrix/show";
     }
 

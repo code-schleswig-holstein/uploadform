@@ -26,13 +26,28 @@
     <br/><br/>
     <div th:if="not ${allowDelete}">
         <a th:href="@{/datasetmatrix/{datasetmatrixId}/edit(datasetmatrixId=${datasetmatrix.id})}"  th:text="#{default.button.edit.label}">Edit</a> |
-        <a th:href="@{/datasetmatrix/{datasetmatrixId}/delete(datasetmatrixId=${datasetmatrix.id})}"  th:text="#{default.button.delete.label}">Delete</a>
+        <a th:href="@{/datasetmatrix/{datasetmatrixId}/delete(datasetmatrixId=${datasetmatrix.id})}"  th:text="#{default.button.delete.label}">Delete</a> |
+        <a th:href="@{/datasetmatrix/list}" >Zurück zur Liste</a>
     </div>
     <form th:if="${allowDelete}" th:action="@{/datasetmatrix/{datasetmatrixId}/delete(datasetmatrixId=${datasetmatrix.id})}" method="POST">
         Delete this datasetmatrix? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
         <a class="btn btn-secondary" th:href="@{/datasetmatrix/list}" href="list.html" role="button" th:text="#{default.button.cancel.label}">Cancel</a>
     </form>
 </div>
+    <hr/>
+    <div th:if="${datasets}">
+        <h2 th:text="#{datasetmatrix.associatedDatasets}">Associated datasets</h2>
+        <table class="table table-striped">
+            <tr>
+                <th th:text="#{localauthority.label}">Local authority</th>
+                <th th:each="year : ${availableYears}" th:text="${year}">2021</th>
+            </tr>
+            <tr th:each="row : ${datasets}">
+                <td th:each="cell: ${row}" th:if="${cellStat.first}" th:text="${@localAuthorityService.name(cell)}">Stadt Kiel</td>
+                <td th:each="cell: ${row}" th:if="${!cellStat.first}"th:text="${cell}"></td>
+            </tr>
+        </table>
+    </div>
 <div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
 </section>
 </body>

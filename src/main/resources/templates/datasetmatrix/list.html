@@ -20,6 +20,7 @@
             <td th:text="${datasetmatrix.title}">...</td>
             <td th:text="${datasetmatrix.description}">...</td>
             <td>
+                <a th:href="@{/datasetmatrix/{id}(id=${datasetmatrix.id})}"  role="button" class="btn btn-primary" ><i class="fa fa-eye"></i></a>
               <a th:href="@{/datasetmatrix/{id}/edit(id=${datasetmatrix.id})}"  role="button" class="btn btn-secondary" ><i class="fa fa-pencil"></i></a>
               <a th:href="@{/datasetmatrix/{id}/delete(id=${datasetmatrix.id})}"  role="button" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></a>
             </td>
