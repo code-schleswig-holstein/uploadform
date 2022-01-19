@@ -104,7 +104,7 @@ public class DatasetService {
 
     Long findExistingDatasetId(Collection<Dataset> allDatasets, String organization, int year) {
         for (Dataset ds : allDatasets) {
-            if (ds.getYear() == year && organization.equals(ds.getOrganization()) && ds.getFile() != null) {
+            if (ds.getYear() == year && organization.equals(ds.getOrganization()) && StringUtils.isEmpty(ds.getFile())) {
                 return ds.getId();
             }
         }
