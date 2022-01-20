@@ -7,6 +7,8 @@ import de.landsh.opendata.uploadform.services.DatasetService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +30,12 @@ import java.util.Set;
 @Controller
 @RequiredArgsConstructor
 public class UploadController {
-
+    private static final Logger log = LoggerFactory.getLogger(UploadController.class);
     private final DatasetMatrixService datasetMatrixService;
     private final DatasetService datasetService;
-    
+
     @Value("${uploader.directory}")
-    private File targetDir ;
+    private File targetDir;
 
     @GetMapping("/upload")
     public String uploadForm(
@@ -45,7 +47,7 @@ public class UploadController {
         final DatasetMatrix datasetMatrix = datasetMatrixService.findById(dataset);
         final List<Dataset> datasets = datasetService.findAllByMatrixAndOrganization(datasetMatrix, organization);
 
-        if(datasetMatrixService.isValidSecurityCode(datasetMatrix, organization, code)) {
+        if (datasetMatrixService.isValidSecurityCode(datasetMatrix, organization, code)) {
             model.addAttribute("datasetMatrix", datasetMatrix);
             model.addAttribute("datasets", datasets);
             model.addAttribute("organization", organization);
@@ -79,6 +81,9 @@ public class UploadController {
                         ds.setFile(file.getOriginalFilename());
                         ds.setUploadDate(LocalDateTime.now());
                         datasetService.update(ds);
+
+                        log.info("Upload for dataset matrix {} from organization {} with filename {}",
+                                ds.getDatasetMatrix().getId(), ds.getOrganization(), ds.getFile());
 
                         uploadedDatasets.add(ds);
                     }
