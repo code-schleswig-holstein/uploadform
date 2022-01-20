@@ -11,20 +11,18 @@
     <table class="table table-striped">
         <tr>
             <th th:text="#{localauthority.id.label}">id</th>
-            <th th:text="#{localauthority.name.label}">name</th>
-            <th th:text="#{localauthority.uri.label}">uri</th>
             <th th:text="#{localauthority.type.label}">type</th>
+            <th th:text="#{localauthority.name.label}">name</th>
             <th th:text="#{localauthority.municipality.label}">municipality</th>
             <th th:text="#{localauthority.county.label}">county</th>
             <th>&#160;</th>
         </tr>
         <tr th:each="localauthority : ${localauthoritys}">
-            <td th:text="${localauthority.id}">1</td>
-            <td th:text="${localauthority.name}">...</td>
-            <td th:text="${localauthority.uri}">...</td>
-            <td th:text="${localauthority.type}">...</td>
-            <td th:text="${localauthority.municipality}">...</td>
-            <td th:text="${localauthority.county}">...</td>
+            <td ><a th:href="@{/localauthority/{id}(id=${localauthority.id})}" th:text="${localauthority.id}">010585890</a></td>
+            <td th:text="${localauthority.type}">Amt</td>
+            <td th:text="${localauthority.name}">Hüttener Berge</td>
+            <td th:text="${localauthority.municipality}">true</td>
+            <td th:text="${localauthority.county}">false</td>
             <td>
               <a th:href="@{/localauthority/{id}/edit(id=${localauthority.id})}"  role="button" class="btn btn-secondary" ><i class="fa fa-pencil"></i></a>
               <a th:href="@{/localauthority/{id}/delete(id=${localauthority.id})}"  role="button" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></a>

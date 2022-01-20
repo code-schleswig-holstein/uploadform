@@ -115,15 +115,13 @@ public class DatasetService {
     }
 
     public Map<DatasetMatrix, String> getCodelistForOrganization(String organization) {
-        Map<DatasetMatrix, String> result = new HashMap<>();
+        final Map<DatasetMatrix, String> result = new HashMap<>();
         final Set<DatasetMatrix> datasetMatrices = datasetRepository.findAllByOrganization(organization).stream().map(Dataset::getDatasetMatrix).collect(Collectors.toSet());
 
         for (DatasetMatrix dm : datasetMatrices) {
-            String url = "upload?dataset="+dm.getId()+"&organization="+organization+"&code="+ datasetMatrixService.getSecurityCode(dm, organization);
-            result.put(dm, url);
+            result.put(dm, datasetMatrixService.getSecurityCode(dm, organization));
         }
 
         return result;
-
     }
 }

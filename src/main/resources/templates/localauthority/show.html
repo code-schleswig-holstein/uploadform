@@ -38,7 +38,8 @@
     <br/><br/>
     <div th:if="not ${allowDelete}">
         <a th:href="@{/localauthority/{localauthorityId}/edit(localauthorityId=${localauthority.id})}"  th:text="#{default.button.edit.label}">Edit</a> |
-        <a th:href="@{/localauthority/{localauthorityId}/delete(localauthorityId=${localauthority.id})}"  th:text="#{default.button.delete.label}">Delete</a>
+        <a th:href="@{/localauthority/{localauthorityId}/delete(localauthorityId=${localauthority.id})}"  th:text="#{default.button.delete.label}">Delete</a> |
+        <a th:href="@{/localauthority/list}" >Zurück zur Liste</a>
     </div>
     <form th:if="${allowDelete}" th:action="@{/localauthority/{localauthorityId}/delete(localauthorityId=${localauthority.id})}" method="POST">
         Delete this localauthority? <button type="submit" class="btn btn-danger" th:text="Yes">Yes</button>
@@ -47,17 +48,11 @@
 
     <hr/>
 
-    <div>
-        <table class="table table-striped">
-            <tr>
-                <th th:text="#{datasetmatrix.label}">Dataset matrix</th>
-                <th>Code</th>
-            </tr>
-            <tr th:each="it : ${codelist}">
-                <td th:text="${it.key.title}">Vornamen</td>
-                <td th:text="${it.value}">https://example.org/upload?code=cc180990-c564-4050-b880-31c3ae97aa18</td>
-            </tr>
-        </table>
+    <div th:if="${codelist}">
+        <h2>Upload-Links</h2>
+        <ul>
+            <li th:each="it : ${codelist}"><a th:text="${it.key.title}" th:href="@{/upload(code=${it.value},organization=${localauthority.id},dataset=${it.key.id})}">https://example.org/upload?code=cc180990-c564-4050-b880-31c3ae97aa18</a></li>
+        </ul>
     </div>
 
 </div>
