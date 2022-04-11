@@ -16,6 +16,7 @@ public class Dataset {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name="ds_year")
     int year;
     String organization;
 
